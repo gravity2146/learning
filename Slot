@@ -1,0 +1,130 @@
+<template>
+  <ClientInformation></ClientInformation>
+  <div class="container">
+    <div class="progress">
+      <div class="row">
+        <div class="col">
+          <div class="step">
+            <a href=""></a>
+            <div class="bullet">
+              <span>1</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="step">
+            <a href=""></a>
+            <div class="bullet">
+              <span>2</span>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="step">
+            <a href=""></a>
+            <div class="bullet">
+              <span>3</span>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="step">
+            <a href=""></a>
+            <div class="bullet">
+              <span>4</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+<script>
+import ClientInformation from '../components/ClientInformation.vue';
+export default {
+  components: { ClientInformation },
+};
+</script>
+<style scoped lang="scss">
+.container {
+  justify-content: center;
+  .progress {
+    justify-content: center;
+    text-align: center;
+    margin: 40px;
+    margin-right: 20%;
+    display: flex;
+    width: 80vw;
+    user-select: none;
+    padding: auto;
+    background-color: white;
+    .row {
+      .col {
+        .step {
+          text-align: center;
+          // width: 100vh;
+          position: relative;
+          p {
+            font-weight: 500;
+            font-size: 18px;
+            color: #000;
+            margin-bottom: 8px;
+          }
+          .bullet {
+            height: 30px;
+            width: 30px;
+            border: 5px solid #000;
+            display: inline-block;
+            border-radius: 50%;
+            position: relative;
+            transition: 0.2s;
+            font-weight: 500;
+            font-size: 17px;
+            line-height: 25px;
+            &:active {
+              border-color: #d43f8d;
+              background: #d43f8d;
+            }
+            &::before {
+              position: absolute;
+              content: '';
+              bottom: 11px;
+              right: 25px;
+              height: 3px;
+              width: 290px;
+              background: #262626;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes animate {
+  100% {
+    transform: scaleX(1);
+  }
+}
+.progress .step:last-child .bullet:before,
+.progress .step:last-child .bullet:after {
+  display: none;
+}
+.progress .step p.active {
+  color: #d43f8d;
+  transition: 0.2s linear;
+}
+.progress-bar .step .check {
+  position: absolute;
+  left: 50%;
+  top: 70%;
+  font-size: 15px;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+.progress-bar .step .check.active {
+  display: block;
+  color: #fff;
+}
+</style>
